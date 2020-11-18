@@ -43,7 +43,7 @@ function generatePassword() {
 function getPasswordCharCt() {
   var ct =  prompt("Please answer the following question for your password.\n The number of characters for your password?", "8");
 
-  if (parseInt(ct) < 8) {
+  if (parseInt(ct) < 8 || parseInt(ct) > 128) {
     alert("The minimal password size is 8 (max 128).  Please re-enter");
     ct = null;   
   }
@@ -56,7 +56,7 @@ function getPasswordCharTypes() {
   // Valid types of password characters Upper, Lower, Numeric, Special
   var valid_types = "U L N S";
 
-  var types = prompt("Please enter the type of characters needed for your password.  They can be Uppercase, Lowercase, Numeric and or Special characters.  Seperate your options with a comma if you have more than 1.  \nYou must choose a least one.\n  For example: U,L,N for upper, lower and numeric characters, or s,n for special and numberic characters only.");
+  var types = prompt("Please enter the type of characters needed for your password.  They can be Uppercase, Lowercase, Numeric and or Special characters.  Seperate your options with a comma if you have more than 1. \nYou must choose a least one. \nFor example: U,L,N for upper, lower and numeric characters, or s,n for special and numberic characters only.");
 
   var type_arr = types.toUpperCase().split(",");
 
@@ -73,9 +73,9 @@ function getPasswordCharTypes() {
     else if (type_arr[i] === 'L')      
       user_chars = user_chars + lower_chars;
     else if (type_arr[i] === 'N')      
-      user_chars = user_chars + lower_chars;
+      user_chars = user_chars + numeric_chars;
     else if (type_arr[i] === 'S')      
-      user_chars = user_chars + lower_chars;
+      user_chars = user_chars + special_chars;
 
   }
   return(type_arr);
