@@ -24,8 +24,6 @@ function generatePassword() {
   user_chars = "";
   var password_char_ct = getPasswordCharCt();  
 
-  console.log(password_char_ct);
-
   if (password_char_ct != null)
     var password_char_types = getPasswordCharTypes();
 
@@ -42,8 +40,9 @@ function generatePassword() {
 function getPasswordCharCt() {
   var ct =  prompt("Please answer the following question for your password.\n The number of characters for your password?", "8");
 
-  if (parseInt(ct) < 8 || parseInt(ct) > 128) {
-    alert("The minimal password size is 8 (max 128).  Please try again and re-enter");
+  console.log(parseInt(ct));
+  if (isNaN(ct) || parseInt(ct) < 8 || parseInt(ct) > 128) {
+    alert("The minimal password size is 8 (max 128) and must be numeric.  Please try again");
     ct = null;   
   }
 
@@ -61,20 +60,17 @@ function getPasswordCharTypes() {
 
   for (var i=0; i<type_arr.length; i++)
   {
-
-    if (!valid_types.includes(type_arr[i]))
-    {
-      type_arr = null;
+    if (valid_types.includes(type_arr[i]))
+    {    
+      if (type_arr[i] === 'U')
+        user_chars = user_chars + upper_chars;
+      else if (type_arr[i] === 'L')      
+        user_chars = user_chars + lower_chars;
+      else if (type_arr[i] === 'N')      
+        user_chars = user_chars + numeric_chars;
+      else if (type_arr[i] === 'S')      
+        user_chars = user_chars + special_chars;
     }
-
-    if (type_arr[i] === 'U')
-      user_chars = user_chars + upper_chars;
-    else if (type_arr[i] === 'L')      
-      user_chars = user_chars + lower_chars;
-    else if (type_arr[i] === 'N')      
-      user_chars = user_chars + numeric_chars;
-    else if (type_arr[i] === 'S')      
-      user_chars = user_chars + special_chars;
 
   }
   return(type_arr);
