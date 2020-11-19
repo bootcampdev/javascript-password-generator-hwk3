@@ -39,12 +39,11 @@ function generatePassword() {
   return password;
 }
 
-
 function getPasswordCharCt() {
   var ct =  prompt("Please answer the following question for your password.\n The number of characters for your password?", "8");
 
   if (parseInt(ct) < 8 || parseInt(ct) > 128) {
-    alert("The minimal password size is 8 (max 128).  Please re-enter");
+    alert("The minimal password size is 8 (max 128).  Please try again and re-enter");
     ct = null;   
   }
 
