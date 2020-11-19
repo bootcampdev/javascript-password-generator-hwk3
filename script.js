@@ -17,7 +17,10 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  if (password.length === 0)
+    alert("Invalid input");
+  else    
+    passwordText.value = password;
 }
 
 function generatePassword() {
