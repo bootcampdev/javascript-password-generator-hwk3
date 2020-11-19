@@ -21,8 +21,8 @@ SO THAT I can create a strong password that provides greater security
 
 ```
 A series of prompts for the password criteria.
- - Minimize the number of prompts to the user
 
+ - Minimize the number of prompts to the user
  - Provide feedback if the answwer to the prompt is incorrect
 
  - The criteria are as follows
