@@ -57,7 +57,7 @@ function getPasswordCharTypes() {
   // Valid types of password characters Upper, Lower, Numeric, Special
   var valid_types = "U L N S";
 
-  var types = prompt("Please enter the type of characters needed for your password.  They can be Uppercase, Lowercase, Numeric and or Special characters.  Seperate your options with a comma if you have more than 1. \nYou must choose a least one. \nFor example: U,L,N for upper, lower and numeric characters, or s,n for special and numberic characters only.");
+  var types = prompt("Please enter the type of characters needed for your password.  They can be Uppercase (u), Lowercase (l), Numeric (n) and or Special characters (s).  Seperate your options with a comma if you have more than 1. \nYou must choose a least one. \nFor example: U,L,N for upper, lower and numeric characters, or S,N for special and numberic characters only.");
 
   var type_arr = types.toUpperCase().split(",");
 
