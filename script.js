@@ -4,15 +4,23 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//
+// Initialize the possible characters types
 // Special characters that can be included in password
+
 var special_chars = " !" + "#$%&'()*+,-./:;<=>?@[\]^_`{|}~" + "\"";
 var lower_chars = "abcdefghijklmnopqrstuvwxyz";
 var upper_chars = lower_chars.toUpperCase();
 var numeric_chars = "0123456789";
-// User choice of characters
+
+//
+// User choice of password characters
+
 var user_chars = "";
 
+//
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -22,6 +30,10 @@ function writePassword() {
   else    
     passwordText.value = password;
 }
+
+//
+// To generate the password - get the password length
+// and the type of chars for the password
 
 function generatePassword() {
   user_chars = "";
@@ -34,16 +46,19 @@ function generatePassword() {
   for (var i=0; i<password_char_ct; i++)
   {
     //Generate password from the user choice of characters list
+
     password += user_chars.charAt(Math. floor(Math. random() * user_chars.length));
   }
 
   return password;
 }
 
+//
+// Get the password count and check if it meets the criteria
+
 function getPasswordCharCt() {
   var ct =  prompt("Please answer the following question for your password.\n The number of characters for your password?", "8");
 
-  console.log(parseInt(ct));
   if (isNaN(ct) || parseInt(ct) < 8 || parseInt(ct) > 128) {
     alert("The minimal password size is 8 (max 128) and must be numeric.  Please try again");
     ct = null;   
@@ -52,9 +67,13 @@ function getPasswordCharCt() {
   return ct;
 }
 
+//
+// Build the possible types of characters for the password
+
 function getPasswordCharTypes() {
 
   // Valid types of password characters Upper, Lower, Numeric, Special
+  
   var valid_types = "U L N S";
 
   var types = prompt("Please enter the type of characters needed for your password.  They can be Uppercase (u), Lowercase (l), Numeric (n) and or Special characters (s).  Seperate your options with a comma if you have more than 1. \nYou must choose a least one. \nFor example: U,L,N for upper, lower and numeric characters, or S,N for special and numberic characters only.");
